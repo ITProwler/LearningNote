@@ -4,7 +4,7 @@
 
 - 前端在处理文件下载失败时，由于在axios里设置了返回类型为blob类型，导致后台返回的json报错信息被转化为blob对象。
   
-  *后台报错之后，将报错信息写入到流内返回前端，http状态码为200，axios会进入then而非catch，通过判断返回的类型type是否为'application/json'来判断是否报错。可通过Response和FileReader两种方法将blob类型转化为json类型。*
+  *后台报错之后，将报错信息写入到流内返回前端，http状态码为200，axios会进入then而非catch，通过判断返回的类型type是否为'application/json'来判断是否报错。可通过Response和FileReader两种方法将blob类型转化为json类型。（部分浏览器的旧版本可能无效）*
    
   *如果后台使用setStatus()修改了http状态码（如：500或自定义状态码），则进入catch方法*
   ```javascript
